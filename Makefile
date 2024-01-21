@@ -1,12 +1,10 @@
+prefix ?= /usr/local
 
-prefix ?= /usr
-
-sloppymove-bin: sloppymove.c
-	gcc -o sloppymove-bin sloppymove.c -lX11
+sloppymove: sloppymove.c
+	gcc -o rp_sloppymove sloppymove.c -lX11
 
 clean:
-	rm -f sloppymove-bin
+	rm -f rp_sloppymove
 	
 install:
-	install -m 755 -D sloppymove-bin $(DESTDIR)$(prefix)/bin/sloppymove-bin
-	install -m 755 -D ratpoison-sloppymove.sh $(DESTDIR)$(prefix)/bin/ratpoison-sloppymove
+	install -m 755 -D rp_sloppymove $(DESTDIR)$(prefix)/bin/rp_sloppymove
